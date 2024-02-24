@@ -128,7 +128,6 @@
                         new_status: newStatus
                     },
                     success: function(response) {
-                        alert(response);
                         Swal.fire({
                             icon: 'success',
                             title: '¡Estado actualizado!',
