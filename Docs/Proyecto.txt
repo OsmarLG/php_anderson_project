@@ -4,8 +4,8 @@ Descripcion: En este proyecto haré solamente proyectos que tengas tareas, donde
 
 Roles y Permisos:
     - Administrador: All permision para ambos cruds
-    - Editor: Solo agregar tareas a los proyectos creados por el Administrador
-    - Usuario: solo marcar las tareas como completas
+    - Editor: Solo agregar, editar y eliminar tareas a los proyectos creados por el Administrador
+    - Usuario: solo cambiar de status = 'En Proceso' y status = 'Terminada' las tareas como completas
 
 Requerimientos funcionales:
     -> Proyectos:
@@ -30,7 +30,7 @@ DataBase (MySQL)
             - id (integer, primary key)
             - name (string)
             - username (string)
-            - passwoed (string)
+            - password (string)
             - rol (enum, ['ADMIN', 'EDITOR', 'WORKER'])
         -> projects:
             - id (integer, primary key)
@@ -39,6 +39,7 @@ DataBase (MySQL)
             - id (integer, primary key)
             - name (string)
             - description (string)
+            - status (enum, ['Nueva','En Proceso','Terminada','Validado'])
             - project_id (integer, foreing id)
 
 Vistas

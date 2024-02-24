@@ -39,7 +39,7 @@
         <p class="mt-3">¿Ya tienes una cuenta? <a href="login.php">Inicia sesión</a></p>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
     <script>
     $(document).ready(function() {
         $('#registerForm').submit(function(event) {
@@ -51,7 +51,7 @@
                 data: $(this).serialize(), 
                 success: function(response) {
                     console.log(response);
-                    header('Location: ../../index.php');
+                    window.location.href = '../../index.php';                
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
