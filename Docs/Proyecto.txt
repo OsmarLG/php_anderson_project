@@ -1,0 +1,47 @@
+Nombre: CRUD_PRUEBA
+
+Descripcion: En este proyecto haré solamente proyectos que tengas tareas, donde tendremos un crud para proyectos, y otro para tareas.
+
+Roles y Permisos:
+    - Administrador: All permision para ambos cruds
+    - Editor: Solo agregar tareas a los proyectos creados por el Administrador
+    - Usuario: solo marcar las tareas como completas
+
+Requerimientos funcionales:
+    -> Proyectos:
+        - Consultar Proyectos
+        - Crear Proyectos
+        - Editar Proyectos
+        - Eliminar Proyectos
+    -> Tareas:
+        - Consultar Tareas
+        - Crear Tareas
+        - Editar Tareas
+        - Eliminar Tareas
+
+Requerimientos No funcionales
+    -> Registros
+    -> Login
+
+
+DataBase (MySQL)
+    tables:
+        -> users:
+            - id (integer, primary key)
+            - name (string)
+            - username (string)
+            - passwoed (string)
+            - rol (enum, ['ADMIN', 'EDITOR', 'WORKER'])
+        -> projects:
+            - id (integer, primary key)
+            - name (string)
+        -> tasks:
+            - id (integer, primary key)
+            - name (string)
+            - description (string)
+            - project_id (integer, foreing id)
+
+Vistas
+    Home
+        -> Proyectos
+            -> Tareas

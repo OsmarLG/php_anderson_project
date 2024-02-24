@@ -1,0 +1,13 @@
+{
+    "name": "vendor/osmar_prueba_php",
+    "description": "prueba de desarrollo en php nativo",
+    "authors": [
+        {
+            "name": "osmarlg",
+            "email": "osmar2001lg@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    }
+}
