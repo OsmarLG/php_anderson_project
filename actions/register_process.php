@@ -23,9 +23,9 @@
             $db = new PDO("mysql:host=$host;dbname=$dbname", $db_username, $db_password);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-            $stmt = $db->prepare("INSERT INTO users (name, username, password, rol) VALUES (?, ?, ?, ?)");
+            $stmt = $db->prepare("INSERT INTO users (name, username, password, rol) VALUES (:name, :username, :password, :rol)");
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $stmt->execute([$name, $username, $hashed_password, $rol]);
+            $stmt->execute([':name' => $name, ':username' => $username, ':password' => $hashed_password, ':rol' => $rol]);
             
             $_SESSION['user'] = [
                 'name' => $name,

@@ -52,19 +52,26 @@
         <?php endif; ?>
         
         <?php if (count($proyectos) > 0): ?>
-            <ul>
+            <div class="row">
                 <?php foreach ($proyectos as $proyecto): ?>
-                    <li>
-                        <a href="views/projects/show.php?id=<?php echo $proyecto['id']; ?>"><?php echo $proyecto['name']; ?></a>
-                    </li>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $proyecto['name']; ?></h5>
+                                <a href="views/projects/show.php?id=<?php echo $proyecto['id']; ?>" class="btn btn-primary">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
                 <?php endforeach; ?>
-            </ul>
+            </div>
         <?php else: ?>
-            <p>No hay proyectos creados.</p>
+            <p class="text-center">No hay proyectos creados.</p>
         <?php endif; ?>
     </div>
 
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <?php include 'views/components/footer.php'; ?>
 </body>
 </html>
