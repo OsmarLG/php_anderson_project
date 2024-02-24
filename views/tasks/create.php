@@ -15,24 +15,30 @@
         exit();
     }
 
-    if (isset($_POST['name']) && isset($_POST['description'])) {
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-    
-        $connection = mysqli_connect("localhost", "root", "", "crud_prueba");
-    
-        if ($connection) {
-            $sql = "INSERT INTO tasks (name, description, project_id) VALUES ('$name', '$description', '$id_proyecto')";
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['name']) && isset($_POST['description'])) {
+            $name = $_POST['name'];
+            $description = $_POST['description'];
 
-            $result = mysqli_query($connection, $sql);
+            $connection = mysqli_connect("localhost", "root", "", "crud_prueba");
 
-            if ($result) {
-                echo "success";
+            if ($connection) {
+                $sql = "INSERT INTO tasks (name, description, project_id) VALUES (?, ?, ?)";
+                
+                $stmt = mysqli_prepare($connection, $sql);
+                mysqli_stmt_bind_param($stmt, 'ssi', $name, $description, $id_proyecto);
+                $result = mysqli_stmt_execute($stmt);
+
+                if ($result) {
+                    echo "success";
+                } else {
+                    echo "error";
+                }
             } else {
-                echo "error";
+                echo "Error de conexión a la base de datos: " . mysqli_connect_error();
             }
         } else {
-            echo "Error de conexión a la base de datos: " . mysqli_connect_error();
+            echo "Error: Datos de la tarea no especificados.";
         }
     }
 ?>

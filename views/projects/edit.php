@@ -89,7 +89,6 @@
                     url: 'edit.php?id=<?php echo $proyecto['id']; ?>',
                     data: formData,
                     success: function(response) {
-                    
                         Swal.fire({
                             icon: 'success',
                             title: '¡Éxito!',

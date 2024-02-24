@@ -15,7 +15,15 @@ function eliminarProyecto(idProyecto) {
                 url: "../../actions/projects/eliminar.php",
                 data: { id: idProyecto },
                 success: function(response) {
-                    window.location.href = '../../index.php';                
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Éxito!',
+                        text: 'El proyecto ha sido eliminado correctamente.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        window.location.href = '../../index.php';                
+                    });
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);

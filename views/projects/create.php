@@ -58,6 +58,8 @@
 
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script>
     $(document).ready(function() {
         $('#cancelar').click(function(event){
@@ -75,7 +77,15 @@
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    window.location.href = 'show.php?id=' + response;
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Proyecto Creado!',
+                        text: '¡Se ha creado un nuevo proyecto!',
+                        timer: 800, 
+                        showConfirmButton: false 
+                    }).then(function() {
+                        window.location.href = 'show.php?id=' + response;
+                    });
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);

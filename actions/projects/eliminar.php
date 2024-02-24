@@ -16,7 +16,9 @@ if (isset($_POST['id'])) {
 
         $result = mysqli_query($connection, $sql);
         
-        if (!$result) {
+        if ($result) {
+            echo "Proyecto eliminado exitosamente";
+        } else {
             echo "Error al eliminar el proyecto: " . mysqli_error($connection);
         }
     } else {
